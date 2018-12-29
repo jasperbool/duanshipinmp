@@ -6,3 +6,4 @@
 1. barryvdh/laravel-debugbar
 2. barryvdh/laravel-ide-helper
 3. barryvdh/laravel-cors
+4. overtrue/laravel-wechat
