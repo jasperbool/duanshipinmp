@@ -13,6 +13,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::post('auth/login', ['as' => 'login', 'uses' => 'home\AuthenticateController@login']);
+
+Route::post('file/upload/image', 'FileController@uploadImage')->name('upload.image');
+Route::post('file/upload/images', 'FileController@uploadImages')->name('upload.images');
+Route::post('file/upload/video', 'FileController@uploadVideo')->name('upload.video');
+
+Route::group(['middleware' => ['auth.token:member']], function(){
+    Route::get('video/categories', 'home\VideoCategoryController@all')->name('video.categories');
 });
+
+

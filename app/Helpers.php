@@ -12,3 +12,13 @@
 //        return null;
 //    }
 //}
+
+/**
+ * 生成文件上传路径
+ */
+if(!function_exists('generateUploadsPath')){
+    function generateUploadsPath($category = 'other')
+    {
+        return $category.'/'.date('Ymd').'/';
+    }
+}
